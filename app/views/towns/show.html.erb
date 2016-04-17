@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="small-5 columns">
+    <h2><%= @town.name %></h2>
+    <hr />
+    <p>
+      <strong>State:</strong>
+      <%= @town.state %>
+    </p>
+    <p>
+      <strong>Description:</strong>
+      <%= @town.description %>
+    </p>
+    <% unless @attractions.empty? %>
+      <p><b>Attractions in <%= @town.name %>:</b>
+        <ol>
+          <% for attraction in @attractions %>
+            <li><%= attraction.name %> - <%= attraction.street %></li>
+          <% end %>
+        </ol>
+      </p>
+    <% end %>
+  </div>
+  <div class="small-7 columns">
+    <%= image_tag @town.create_map_link %>
+  </div>
+</div>
+<div class="row">
+  <div class="small-12 columns">
+    <br />
+    <ul>
+      <li><%= link_to 'Edit Town', edit_town_path(@town) %></li>
+      <li><%= link_to 'List All Towns', towns_path %></li>
+    </ul>
+  </div>
+</div>
+
+

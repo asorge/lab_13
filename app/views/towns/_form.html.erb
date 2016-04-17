@@ -1,0 +1,14 @@
+<%= simple_form_for @town, :html => { :class => 'form-horizontal' } do |town_form| %>
+  <div class="row">
+    <div class="span7">
+      <fieldset>
+        <legend><%= controller.action_name.capitalize %> Town</legend>
+        <%= render :partial => "town_fields", :locals => { :f => town_form } %>
+      </fieldset>
+    </div>
+
+  <div class="form-actions">
+    <%= town_form.submit nil, :class => 'button radius' %>
+    <%= link_to 'Cancel', towns_path, :class => 'button secondary' %>
+  </div>
+<% end %>

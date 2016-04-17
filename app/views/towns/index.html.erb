@@ -1,0 +1,27 @@
+<h1>Listing towns</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>State</th>
+      <th>Description</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @towns.each do |town| %>
+      <tr>
+        <td><%= link_to town.name, town_path(town) %></td>
+        <td><%= town.state %></td>
+        <td><%= town.description %></td>
+        <td><%= link_to 'Edit', edit_town_path(town) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Add a New Town', new_town_path %>
