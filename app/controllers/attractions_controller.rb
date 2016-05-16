@@ -22,9 +22,15 @@ class AttractionsController < ApplicationController
       if @attraction.save
         format.html { redirect_to @attraction, notice: 'Attraction was successfully created.' }
         format.json { render action: 'show', status: :created, location: @attraction }
+        @town = @attraction.town
+        @attractions = @town.attractions.alphabetical.to_a
+        format.js 
       else
         format.html { render action: 'new' }
         format.json { render json: @attraction.errors, status: :unprocessable_entity }
+        @town = @attraction.town
+        @attractions = @town.attractions.alphabetical.to_a
+        format.js
       end
     end
   end
