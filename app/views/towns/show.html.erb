@@ -1,28 +1,10 @@
 <p id="notice"><%= notice %></p>
 <div class="row">
   <div class="small-5 columns">
-    <h2><%= @town.name %></h2>
-    <hr />
-    <p>
-      <strong>State:</strong>
-      <%= @town.state %>
-    </p>
-    <p>
-      <strong>Description:</strong>
-      <%= @town.description %>
-    </p>
-    <% unless @attractions.empty? %>
-      <p><b>Attractions in <%= @town.name %>:</b>
-        <ol>
-          <% for attraction in @attractions %>
-            <li><%= attraction.name %> - <%= attraction.street %></li>
-          <% end %>
-        </ol>
-      </p>
-    <% end %>
+    <%= render :partial => "town_details" %>
   </div>
   <div class="small-7 columns">
-    <%= image_tag @town.create_map_link %>
+    <%= render :partia => "town_map" %>
   </div>
 </div>
 <div class="row">
