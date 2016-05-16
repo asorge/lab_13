@@ -10,7 +10,7 @@
       <%= @town.description %>
     </p>
     <%= render :partial => "list_of_attractions" %>
-    <%= link_to(new_attraction_path(town_id: @town.id), class: 'button tiny radius', remote: true) do %>
+    <%= link_to(new_attraction_path(town_id: @town.id), id: 'new_attraction_link', class: 'button tiny radius', remote: true) do %>
 	  Add New Attraction
 	<% end %>
 </div>
