@@ -9,13 +9,8 @@
       <strong>Description:</strong>
       <%= @town.description %>
     </p>
-    <% unless @attractions.empty? %>
-      <p><b>Attractions in <%= @town.name %>:</b>
-        <ol>
-          <% for attraction in @attractions %>
-            <li><%= attraction.name %> - <%= attraction.street %></li>
-          <% end %>
-        </ol>
-      </p>
-    <% end %>
+    <%= render :partial => "list_of_attractions" %>
+    <%= link_to(new_attraction_path(town_id: @town.id), class: 'button tiny radius', remote: true) do %>
+	  Add New Attraction
+	<% end %>
 </div>

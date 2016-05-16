@@ -1,0 +1,11 @@
+<div id="attraction-list">
+  <% unless @attractions.empty? %>
+  <p><b>Attractions in <%= @town.name %>:</b>
+    <ol>
+      <% for attraction in @attractions %>
+        <li><%= attraction.name %> - <%= attraction.street %></li>
+      <% end %>
+    </ol>
+  </p>
+ <% end %>
+</div>
